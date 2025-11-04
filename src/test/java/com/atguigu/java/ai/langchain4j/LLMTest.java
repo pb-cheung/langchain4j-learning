@@ -1,5 +1,7 @@
 package com.atguigu.java.ai.langchain4j;
 
+import dev.langchain4j.community.model.dashscope.QwenChatModel;
+import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +29,24 @@ public class LLMTest {
     public void testOpenAIDemo() {
         String answer = openAiChatModel.chat("怀孕26周左右，孕妇肚皮不定时的会有紧绷状态和硬块，可能是什么原因？");
         System.out.println(answer );
+    }
+
+    @Autowired
+    private OllamaChatModel ollamaChatModel;
+
+    @Test
+    public void testOllamaChatModel() {
+        String answer = ollamaChatModel.chat("你是谁");
+        System.out.println(answer);
+    }
+
+
+    @Autowired
+    private QwenChatModel qwenChatModel;
+
+    @Test
+    public void testQwenChatModel() {
+        String answer = qwenChatModel.chat("你是谁？");
+        System.out.println(answer);
     }
 }
