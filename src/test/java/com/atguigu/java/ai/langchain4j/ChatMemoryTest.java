@@ -24,10 +24,10 @@ public class ChatMemoryTest {
     @Autowired
     private QwenChatModel qwenChatModel;
 
-    @Value("${PROXY_HOST}")
+    @Value("${PROXY_HOST:localhost}")
     private String proxyHost;
 
-    @Value("${PROXY_PORT}")
+    @Value("${PROXY_PORT:8899}")
     private String proxyPort;
 
     @Value("${ENABLE_PROXY:false}")
@@ -104,7 +104,7 @@ public class ChatMemoryTest {
     private SeparateChatAssistant separateChatAssistant;
     @Test
     public void testChatMemory5() {
-        setProxyIfEnabled();
+        // setProxyIfEnabled();
 
         String answer1 = separateChatAssistant.chat(1,"我是刘皇叔");
         System.out.println(answer1);
