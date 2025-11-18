@@ -9,9 +9,10 @@ import dev.langchain4j.service.spring.AiService;
 import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
 
 @AiService(
-        wiringMode = EXPLICIT,
-        chatModel = "qwenChatModel",
-        chatMemoryProvider = "chatMemoryProvider"
+    wiringMode = EXPLICIT,
+    chatModel = "qwenChatModel",
+    chatMemoryProvider = "chatMemoryProvider",
+    tools = "calculatorTools" // 配置工具
 )
 public interface SeparateChatAssistant {
 
@@ -24,9 +25,9 @@ public interface SeparateChatAssistant {
 
     @SystemMessage(fromResource = "my-prompt-template3.txt")
     String chat3(
-            @MemoryId int memoryId,
-            @UserMessage String userMessage,
-            @V("username") String username,
-            @V("age") int age
+        @MemoryId int memoryId,
+        @UserMessage String userMessage,
+        @V("username") String username,
+        @V("age") int age
     );
 }
