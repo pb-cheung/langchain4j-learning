@@ -34,4 +34,9 @@ build/
 ### Mac OS ###
 .DS_Store
 
+### environment config ###
 .env
+
+### AI Agent ###
+.claude
+
